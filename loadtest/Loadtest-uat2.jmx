@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.7" jmeter="2.12 r1636949">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="ESB Airtel FTP Bill Payment Notification Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">SecurityToken</stringProp>
+            <stringProp name="Header.value">83a7443f6f19c1a4c2e7fe225b059a2f8eadd6fb7765a811b817edcff12e2cd95c13ef458dfc215541c53b63ec6e0318a445737b0e9eec91d6c3b9d4638dcf767eb3de51d91ad68cad9a89b9fd07b594e0aa7b1f3ef48846675cfa428d552e06ac1147f9279cead5315b0cd85388c0390265f5e5e04ff1f1ff2c8e3bb66bd07701b893ccce7e11d37742ca1694750b6448884d5f2b2b33bb64ff1f34e820b6132f78fbd3460e32aaaa79ac26f970a0f7f3ac006886d66560eef319372f1f3b6888410614f4733f4464c84f0c7fea6990da1cc91d55e72b6da229831ca444fe4e6bee20f527991cc83234b629c82230392ce528c209dc07343f2d8cfc95a3a0b65dbba59530fb165891bdd69dba089669</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">120</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1389897840000</longProp>
+        <longProp name="ThreadGroup.end_time">1389902400000</longProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">7200</stringProp>
+        <stringProp name="ThreadGroup.delay">0</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="MTN-Bill Payment Notification-56" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.56/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt;&lt;RouteId&gt;MTNN&lt;/RouteId&gt;
+	&lt;ServiceUrl/&gt;
+	&lt;ServiceUsername/&gt;
+	&lt;ServicePassword/&gt;
+	&lt;FtpUrl/&gt;
+	&lt;FtpUsername/&gt;
+	&lt;FtpPassword/&gt;
+	&lt;Payments&gt;
+	&lt;Payment&gt;
+	&lt;ProductGroupCode&gt;MTNN&lt;/ProductGroupCode&gt;
+	&lt;PaymentLogId&gt;9830949&lt;/PaymentLogId&gt;
+	&lt;CustReference&gt;2348035350700&lt;/CustReference&gt;
+	&lt;AlternateCustReference&gt;08065186175&lt;/AlternateCustReference&gt;
+	&lt;Amount&gt;30000.00&lt;/Amount&gt;
+	&lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+	&lt;PaymentMethod&gt;Debit Card&lt;/PaymentMethod&gt;
+	&lt;PaymentReference&gt;UBA|Web|3nqt0001|MTNPP|240814171006|00011985&lt;/PaymentReference&gt;
+	&lt;TerminalId/&gt;
+	&lt;ChannelName&gt;WEB&lt;/ChannelName&gt;
+	&lt;Location/&gt;
+	&lt;IsReversal&gt;False&lt;/IsReversal&gt;
+	&lt;PaymentDate&gt;08/24/2014 17:10:06&lt;/PaymentDate&gt;
+	&lt;SettlementDate&gt;08/25/2014 00:00:01&lt;/SettlementDate&gt;
+	&lt;InstitutionId&gt;MTNPP&lt;/InstitutionId&gt;
+	&lt;InstitutionName&gt;MTN ePayment&lt;/InstitutionName&gt;
+	&lt;BranchName/&gt;
+	&lt;BankName&gt;United Bank for Africa Plc&lt;/BankName&gt;
+	&lt;FeeName/&gt;
+	&lt;CustomerName&gt;N/A&lt;/CustomerName&gt;
+	&lt;OtherCustomerInfo&gt;|08022920796&lt;/OtherCustomerInfo&gt;
+	&lt;ReceiptNo&gt;1423604556&lt;/ReceiptNo&gt;
+	&lt;CollectionsAccount&gt;1017643426&lt;/CollectionsAccount&gt;
+	&lt;ThirdPartyCode/&gt;
+	&lt;PaymentItems&gt;
+	&lt;PaymentItem&gt;
+	&lt;ItemName&gt;Postpaid Payment (GSM)&lt;/ItemName&gt;
+	&lt;ItemCode&gt;MTNPP&lt;/ItemCode&gt;
+	&lt;ItemAmount&gt;30000.00&lt;/ItemAmount&gt;
+	&lt;LeadBankCode&gt;UBA&lt;/LeadBankCode&gt;
+	&lt;LeadBankCbnCode&gt;033&lt;/LeadBankCbnCode&gt;
+	&lt;LeadBankName&gt;United Bank for Africa Plc&lt;/LeadBankName&gt;
+	&lt;CategoryCode/&gt;
+	&lt;CategoryName/&gt;
+	&lt;ItemQuantity&gt;1&lt;/ItemQuantity&gt;
+	&lt;/PaymentItem&gt;
+	&lt;/PaymentItems&gt;
+	&lt;BankCode&gt;UBA&lt;/BankCode&gt;
+	&lt;CustomerAddress/&gt;
+	&lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+	&lt;DepositorName&gt;08022920796&lt;/DepositorName&gt;
+	&lt;DepositSlipNumber&gt;UBA|WEB|QT|24-08-201&lt;/DepositSlipNumber&gt;
+	&lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+	&lt;OriginalPaymentLogId/&gt;
+	&lt;OriginalPaymentReference/&gt;
+	&lt;Teller&gt; N/A&lt;/Teller&gt;
+	&lt;/Payment&gt;
+	&lt;/Payments&gt;&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="MTN-Bill Payment Notification-104" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.104/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt;&lt;RouteId&gt;MTNN&lt;/RouteId&gt;
+	&lt;ServiceUrl/&gt;
+	&lt;ServiceUsername/&gt;
+	&lt;ServicePassword/&gt;
+	&lt;FtpUrl/&gt;
+	&lt;FtpUsername/&gt;
+	&lt;FtpPassword/&gt;
+	&lt;Payments&gt;
+	&lt;Payment&gt;
+	&lt;ProductGroupCode&gt;MTNN&lt;/ProductGroupCode&gt;
+	&lt;PaymentLogId&gt;9830949&lt;/PaymentLogId&gt;
+	&lt;CustReference&gt;2348035350700&lt;/CustReference&gt;
+	&lt;AlternateCustReference&gt;08065186175&lt;/AlternateCustReference&gt;
+	&lt;Amount&gt;30000.00&lt;/Amount&gt;
+	&lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+	&lt;PaymentMethod&gt;Debit Card&lt;/PaymentMethod&gt;
+	&lt;PaymentReference&gt;UBA|Web|3nqt0001|MTNPP|240814171006|00011985&lt;/PaymentReference&gt;
+	&lt;TerminalId/&gt;
+	&lt;ChannelName&gt;WEB&lt;/ChannelName&gt;
+	&lt;Location/&gt;
+	&lt;IsReversal&gt;False&lt;/IsReversal&gt;
+	&lt;PaymentDate&gt;08/24/2014 17:10:06&lt;/PaymentDate&gt;
+	&lt;SettlementDate&gt;08/25/2014 00:00:01&lt;/SettlementDate&gt;
+	&lt;InstitutionId&gt;MTNPP&lt;/InstitutionId&gt;
+	&lt;InstitutionName&gt;MTN ePayment&lt;/InstitutionName&gt;
+	&lt;BranchName/&gt;
+	&lt;BankName&gt;United Bank for Africa Plc&lt;/BankName&gt;
+	&lt;FeeName/&gt;
+	&lt;CustomerName&gt;N/A&lt;/CustomerName&gt;
+	&lt;OtherCustomerInfo&gt;|08022920796&lt;/OtherCustomerInfo&gt;
+	&lt;ReceiptNo&gt;1423604556&lt;/ReceiptNo&gt;
+	&lt;CollectionsAccount&gt;1017643426&lt;/CollectionsAccount&gt;
+	&lt;ThirdPartyCode/&gt;
+	&lt;PaymentItems&gt;
+	&lt;PaymentItem&gt;
+	&lt;ItemName&gt;Postpaid Payment (GSM)&lt;/ItemName&gt;
+	&lt;ItemCode&gt;MTNPP&lt;/ItemCode&gt;
+	&lt;ItemAmount&gt;30000.00&lt;/ItemAmount&gt;
+	&lt;LeadBankCode&gt;UBA&lt;/LeadBankCode&gt;
+	&lt;LeadBankCbnCode&gt;033&lt;/LeadBankCbnCode&gt;
+	&lt;LeadBankName&gt;United Bank for Africa Plc&lt;/LeadBankName&gt;
+	&lt;CategoryCode/&gt;
+	&lt;CategoryName/&gt;
+	&lt;ItemQuantity&gt;1&lt;/ItemQuantity&gt;
+	&lt;/PaymentItem&gt;
+	&lt;/PaymentItems&gt;
+	&lt;BankCode&gt;UBA&lt;/BankCode&gt;
+	&lt;CustomerAddress/&gt;
+	&lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+	&lt;DepositorName&gt;08022920796&lt;/DepositorName&gt;
+	&lt;DepositSlipNumber&gt;UBA|WEB|QT|24-08-201&lt;/DepositSlipNumber&gt;
+	&lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+	&lt;OriginalPaymentLogId/&gt;
+	&lt;OriginalPaymentReference/&gt;
+	&lt;Teller&gt; N/A&lt;/Teller&gt;
+	&lt;/Payment&gt;
+	&lt;/Payments&gt;&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="DSTV-Bill Payment Notification-56" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.56/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt;       &lt;RouteId&gt;mcnsmartcard&lt;/RouteId&gt;
+       &lt;ServiceUrl&gt;payment notification HTTP://www.reemsonline.com/Interswitch/InterswitchEnterpriseTest.aspx&lt;/ServiceUrl&gt;
+       &lt;ServiceUsername&gt;EnterpriseTest&lt;/ServiceUsername&gt;
+       &lt;ServicePassword&gt;EnterpriseTest&lt;/ServicePassword&gt;
+       &lt;FtpUrl&gt;payment notification HTTP://www.reemsonline.com/Interswitch/InterswitchEnterpriseTest.aspx&lt;/FtpUrl&gt;
+       &lt;FtpUsername/&gt;
+       &lt;FtpPassword/&gt;
+       &lt;Payments&gt;
+          &lt;Payment&gt;
+             &lt;ProductGroupCode&gt;mcnsmartcard&lt;/ProductGroupCode&gt;
+             &lt;PaymentLogId&gt;157673&lt;/PaymentLogId&gt;
+             &lt;CustReference&gt;4253474690&lt;/CustReference&gt;
+             &lt;AlternateCustReference&gt;08065186175&lt;/AlternateCustReference&gt;
+             &lt;Amount&gt;4200.00&lt;/Amount&gt;
+             &lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+             &lt;PaymentMethod&gt;CASH&lt;/PaymentMethod&gt;
+             &lt;PaymentReference&gt;FBN|BRH|KSP|4-03-2014|007573D&lt;/PaymentReference&gt;
+             &lt;TerminalId/&gt;
+             &lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+             &lt;Location&gt;ABAJI&lt;/Location&gt;
+             &lt;IsReversal&gt;False&lt;/IsReversal&gt;
+             &lt;PaymentDate&gt;03/04/2014 11:58:22&lt;/PaymentDate&gt;
+             &lt;SettlementDate&gt;03/05/2014 00:00:01&lt;/SettlementDate&gt;
+             &lt;InstitutionId&gt;KSP&lt;/InstitutionId&gt;
+             &lt;InstitutionName&gt;Kano State Payments&lt;/InstitutionName&gt;
+             &lt;BranchName&gt;ABAJI&lt;/BranchName&gt;
+             &lt;BankName&gt;First Bank of Nigeria Plc&lt;/BankName&gt;
+             &lt;FeeName/&gt;
+             &lt;CustomerName&gt;OLABAMIJI  A.TAIWO&lt;/CustomerName&gt;
+             &lt;OtherCustomerInfo&gt;Lagos|08037119301&lt;/OtherCustomerInfo&gt;
+             &lt;ReceiptNo&gt;1406335845&lt;/ReceiptNo&gt;
+             &lt;CollectionsAccount&gt;455455354545&lt;/CollectionsAccount&gt;
+             &lt;ThirdPartyCode&gt;--N/A--&lt;/ThirdPartyCode&gt;
+             &lt;PaymentItems&gt;
+                &lt;PaymentItem&gt;
+                   &lt;ItemName&gt;Kano State Payments (National Plate Numbers (test))&lt;/ItemName&gt;
+                   &lt;ItemCode&gt;KSP&lt;/ItemCode&gt;
+                   &lt;ItemAmount&gt;4200.00&lt;/ItemAmount&gt;
+                   &lt;LeadBankCode&gt;FBN&lt;/LeadBankCode&gt;
+                   &lt;LeadBankCbnCode&gt;011&lt;/LeadBankCbnCode&gt;
+                   &lt;LeadBankName&gt;First Bank of Nigeria Plc&lt;/LeadBankName&gt;
+                   &lt;CategoryCode&gt;4030013&lt;/CategoryCode&gt;
+                   &lt;CategoryName&gt;National Plate Numbers (test)&lt;/CategoryName&gt;
+                &lt;/PaymentItem&gt;
+             &lt;/PaymentItems&gt;
+             &lt;BankCode&gt;FBN&lt;/BankCode&gt;
+             &lt;CustomerAddress&gt;Lagos&lt;/CustomerAddress&gt;
+             &lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+             &lt;DepositorName&gt;1234&lt;/DepositorName&gt;
+             &lt;DepositSlipNumber&gt;1234&lt;/DepositSlipNumber&gt;
+             &lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+             &lt;OriginalPaymentLogId&gt;0&lt;/OriginalPaymentLogId&gt;
+             &lt;OriginalPaymentReference/&gt;
+             &lt;Teller&gt;ABAJI1 ABAJI&lt;/Teller&gt;
+          &lt;/Payment&gt;
+       &lt;/Payments&gt;
+&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="DSTV-Bill Payment Notification-104" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.104/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt;       &lt;RouteId&gt;mcnsmartcard&lt;/RouteId&gt;
+       &lt;ServiceUrl&gt;payment notification HTTP://www.reemsonline.com/Interswitch/InterswitchEnterpriseTest.aspx&lt;/ServiceUrl&gt;
+       &lt;ServiceUsername&gt;EnterpriseTest&lt;/ServiceUsername&gt;
+       &lt;ServicePassword&gt;EnterpriseTest&lt;/ServicePassword&gt;
+       &lt;FtpUrl&gt;payment notification HTTP://www.reemsonline.com/Interswitch/InterswitchEnterpriseTest.aspx&lt;/FtpUrl&gt;
+       &lt;FtpUsername/&gt;
+       &lt;FtpPassword/&gt;
+       &lt;Payments&gt;
+          &lt;Payment&gt;
+             &lt;ProductGroupCode&gt;mcnsmartcard&lt;/ProductGroupCode&gt;
+             &lt;PaymentLogId&gt;157673&lt;/PaymentLogId&gt;
+             &lt;CustReference&gt;4253474690&lt;/CustReference&gt;
+             &lt;AlternateCustReference&gt;08065186175&lt;/AlternateCustReference&gt;
+             &lt;Amount&gt;4200.00&lt;/Amount&gt;
+             &lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+             &lt;PaymentMethod&gt;CASH&lt;/PaymentMethod&gt;
+             &lt;PaymentReference&gt;FBN|BRH|KSP|4-03-2014|007573D&lt;/PaymentReference&gt;
+             &lt;TerminalId/&gt;
+             &lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+             &lt;Location&gt;ABAJI&lt;/Location&gt;
+             &lt;IsReversal&gt;False&lt;/IsReversal&gt;
+             &lt;PaymentDate&gt;03/04/2014 11:58:22&lt;/PaymentDate&gt;
+             &lt;SettlementDate&gt;03/05/2014 00:00:01&lt;/SettlementDate&gt;
+             &lt;InstitutionId&gt;KSP&lt;/InstitutionId&gt;
+             &lt;InstitutionName&gt;Kano State Payments&lt;/InstitutionName&gt;
+             &lt;BranchName&gt;ABAJI&lt;/BranchName&gt;
+             &lt;BankName&gt;First Bank of Nigeria Plc&lt;/BankName&gt;
+             &lt;FeeName/&gt;
+             &lt;CustomerName&gt;OLABAMIJI  A.TAIWO&lt;/CustomerName&gt;
+             &lt;OtherCustomerInfo&gt;Lagos|08037119301&lt;/OtherCustomerInfo&gt;
+             &lt;ReceiptNo&gt;1406335845&lt;/ReceiptNo&gt;
+             &lt;CollectionsAccount&gt;455455354545&lt;/CollectionsAccount&gt;
+             &lt;ThirdPartyCode&gt;--N/A--&lt;/ThirdPartyCode&gt;
+             &lt;PaymentItems&gt;
+                &lt;PaymentItem&gt;
+                   &lt;ItemName&gt;Kano State Payments (National Plate Numbers (test))&lt;/ItemName&gt;
+                   &lt;ItemCode&gt;KSP&lt;/ItemCode&gt;
+                   &lt;ItemAmount&gt;4200.00&lt;/ItemAmount&gt;
+                   &lt;LeadBankCode&gt;FBN&lt;/LeadBankCode&gt;
+                   &lt;LeadBankCbnCode&gt;011&lt;/LeadBankCbnCode&gt;
+                   &lt;LeadBankName&gt;First Bank of Nigeria Plc&lt;/LeadBankName&gt;
+                   &lt;CategoryCode&gt;4030013&lt;/CategoryCode&gt;
+                   &lt;CategoryName&gt;National Plate Numbers (test)&lt;/CategoryName&gt;
+                &lt;/PaymentItem&gt;
+             &lt;/PaymentItems&gt;
+             &lt;BankCode&gt;FBN&lt;/BankCode&gt;
+             &lt;CustomerAddress&gt;Lagos&lt;/CustomerAddress&gt;
+             &lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+             &lt;DepositorName&gt;1234&lt;/DepositorName&gt;
+             &lt;DepositSlipNumber&gt;1234&lt;/DepositSlipNumber&gt;
+             &lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+             &lt;OriginalPaymentLogId&gt;0&lt;/OriginalPaymentLogId&gt;
+             &lt;OriginalPaymentReference/&gt;
+             &lt;Teller&gt;ABAJI1 ABAJI&lt;/Teller&gt;
+          &lt;/Payment&gt;
+       &lt;/Payments&gt;
+&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="EasyFuel-Bill Payment Notification-56" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.56/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt;       &lt;RouteId&gt;EFUEL&lt;/RouteId&gt;
+       &lt;ServiceUrl/&gt;
+       &lt;ServiceUsername/&gt;
+       &lt;ServicePassword/&gt;
+       &lt;FtpUrl/&gt;
+       &lt;FtpUsername/&gt;
+       &lt;FtpPassword/&gt;
+       &lt;Payments&gt;
+          &lt;Payment&gt;
+             &lt;ProductGroupCode&gt;EFUEL&lt;/ProductGroupCode&gt;
+             &lt;PaymentLogId&gt;17780&lt;/PaymentLogId&gt;
+             &lt;CustReference&gt;08065186175&lt;/CustReference&gt;
+             &lt;AlternateCustReference&gt;5060990580000001638&lt;/AlternateCustReference&gt;
+             &lt;Amount&gt;2000.00&lt;/Amount&gt;
+             &lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+             &lt;PaymentMethod&gt;Cash&lt;/PaymentMethod&gt;
+             &lt;PaymentReference&gt;FBN|BRH|EASY|23-05-2014|008053&lt;/PaymentReference&gt;
+             &lt;TerminalId/&gt;
+             &lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+             &lt;Location&gt;ABAJI&lt;/Location&gt;
+             &lt;IsReversal&gt;False&lt;/IsReversal&gt;
+             &lt;PaymentDate&gt;05/23/2014 09:37:28&lt;/PaymentDate&gt;
+             &lt;SettlementDate&gt;05/26/2014 00:00:01&lt;/SettlementDate&gt;
+             &lt;InstitutionId&gt;EASY&lt;/InstitutionId&gt;
+             &lt;InstitutionName&gt;EasyFuel&lt;/InstitutionName&gt;
+             &lt;BranchName&gt;ABAJI&lt;/BranchName&gt;
+             &lt;BankName&gt;First Bank of Nigeria Plc&lt;/BankName&gt;
+             &lt;FeeName/&gt;
+             &lt;CustomerName&gt;TEST2&lt;/CustomerName&gt;
+             &lt;OtherCustomerInfo&gt;8 AJEGUNLE ROAD|08022233333&lt;/OtherCustomerInfo&gt;
+             &lt;ReceiptNo&gt;1414339200&lt;/ReceiptNo&gt;
+             &lt;CollectionsAccount&gt;11223377777&lt;/CollectionsAccount&gt;
+             &lt;ThirdPartyCode/&gt;
+             &lt;PaymentItems&gt;
+                &lt;PaymentItem&gt;
+                   &lt;ItemName&gt;Token Top-Up&lt;/ItemName&gt;
+                   &lt;ItemCode&gt;TTU&lt;/ItemCode&gt;
+                   &lt;ItemAmount&gt;2000.00&lt;/ItemAmount&gt;
+                   &lt;LeadBankCode&gt;OBIB&lt;/LeadBankCode&gt;
+                   &lt;LeadBankCbnCode&gt;OBIB&lt;/LeadBankCbnCode&gt;
+                   &lt;LeadBankName&gt;Oceanic Bank Internet Banking&lt;/LeadBankName&gt;
+                   &lt;CategoryCode/&gt;
+                   &lt;CategoryName/&gt;
+                   &lt;ItemQuantity&gt;1&lt;/ItemQuantity&gt;
+                &lt;/PaymentItem&gt;
+             &lt;/PaymentItems&gt;
+             &lt;BankCode&gt;FBN&lt;/BankCode&gt;
+             &lt;CustomerAddress&gt;8 AJEGUNLE ROAD&lt;/CustomerAddress&gt;
+             &lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+             &lt;DepositorName&gt;fade&lt;/DepositorName&gt;
+             &lt;DepositSlipNumber&gt;12&lt;/DepositSlipNumber&gt;
+             &lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+             &lt;OriginalPaymentLogId/&gt;
+             &lt;OriginalPaymentReference/&gt;
+             &lt;Teller&gt;ABAJI1 ABAJI&lt;/Teller&gt;
+          &lt;/Payment&gt;
+       &lt;/Payments&gt;
+&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="EasyFuel-Bill Payment Notification-104" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.104/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt;       &lt;RouteId&gt;EFUEL&lt;/RouteId&gt;
+       &lt;ServiceUrl/&gt;
+       &lt;ServiceUsername/&gt;
+       &lt;ServicePassword/&gt;
+       &lt;FtpUrl/&gt;
+       &lt;FtpUsername/&gt;
+       &lt;FtpPassword/&gt;
+       &lt;Payments&gt;
+          &lt;Payment&gt;
+             &lt;ProductGroupCode&gt;EFUEL&lt;/ProductGroupCode&gt;
+             &lt;PaymentLogId&gt;17780&lt;/PaymentLogId&gt;
+             &lt;CustReference&gt;08065186175&lt;/CustReference&gt;
+             &lt;AlternateCustReference&gt;5060990580000001638&lt;/AlternateCustReference&gt;
+             &lt;Amount&gt;2000.00&lt;/Amount&gt;
+             &lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+             &lt;PaymentMethod&gt;Cash&lt;/PaymentMethod&gt;
+             &lt;PaymentReference&gt;FBN|BRH|EASY|23-05-2014|008053&lt;/PaymentReference&gt;
+             &lt;TerminalId/&gt;
+             &lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+             &lt;Location&gt;ABAJI&lt;/Location&gt;
+             &lt;IsReversal&gt;False&lt;/IsReversal&gt;
+             &lt;PaymentDate&gt;05/23/2014 09:37:28&lt;/PaymentDate&gt;
+             &lt;SettlementDate&gt;05/26/2014 00:00:01&lt;/SettlementDate&gt;
+             &lt;InstitutionId&gt;EASY&lt;/InstitutionId&gt;
+             &lt;InstitutionName&gt;EasyFuel&lt;/InstitutionName&gt;
+             &lt;BranchName&gt;ABAJI&lt;/BranchName&gt;
+             &lt;BankName&gt;First Bank of Nigeria Plc&lt;/BankName&gt;
+             &lt;FeeName/&gt;
+             &lt;CustomerName&gt;TEST2&lt;/CustomerName&gt;
+             &lt;OtherCustomerInfo&gt;8 AJEGUNLE ROAD|08022233333&lt;/OtherCustomerInfo&gt;
+             &lt;ReceiptNo&gt;1414339200&lt;/ReceiptNo&gt;
+             &lt;CollectionsAccount&gt;11223377777&lt;/CollectionsAccount&gt;
+             &lt;ThirdPartyCode/&gt;
+             &lt;PaymentItems&gt;
+                &lt;PaymentItem&gt;
+                   &lt;ItemName&gt;Token Top-Up&lt;/ItemName&gt;
+                   &lt;ItemCode&gt;TTU&lt;/ItemCode&gt;
+                   &lt;ItemAmount&gt;2000.00&lt;/ItemAmount&gt;
+                   &lt;LeadBankCode&gt;OBIB&lt;/LeadBankCode&gt;
+                   &lt;LeadBankCbnCode&gt;OBIB&lt;/LeadBankCbnCode&gt;
+                   &lt;LeadBankName&gt;Oceanic Bank Internet Banking&lt;/LeadBankName&gt;
+                   &lt;CategoryCode/&gt;
+                   &lt;CategoryName/&gt;
+                   &lt;ItemQuantity&gt;1&lt;/ItemQuantity&gt;
+                &lt;/PaymentItem&gt;
+             &lt;/PaymentItems&gt;
+             &lt;BankCode&gt;FBN&lt;/BankCode&gt;
+             &lt;CustomerAddress&gt;8 AJEGUNLE ROAD&lt;/CustomerAddress&gt;
+             &lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+             &lt;DepositorName&gt;fade&lt;/DepositorName&gt;
+             &lt;DepositSlipNumber&gt;12&lt;/DepositSlipNumber&gt;
+             &lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+             &lt;OriginalPaymentLogId/&gt;
+             &lt;OriginalPaymentReference/&gt;
+             &lt;Teller&gt;ABAJI1 ABAJI&lt;/Teller&gt;
+          &lt;/Payment&gt;
+       &lt;/Payments&gt;
+&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="FirstMonie-Bill Payment Notification-56" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.56/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt; &lt;RouteId&gt;firstMonieBillPaymentv3&lt;/RouteId&gt;
+       &lt;ServiceUrl&gt;&lt;/ServiceUrl&gt;
+       &lt;ServiceUsername&gt;&lt;/ServiceUsername&gt;
+       &lt;ServicePassword&gt;&lt;/ServicePassword&gt;
+       &lt;FtpUrl&gt;&lt;/FtpUrl&gt;
+       &lt;FtpUsername/&gt;
+       &lt;FtpPassword/&gt;
+       &lt;Payments&gt;
+          &lt;Payment&gt;
+             &lt;ProductGroupCode&gt;&lt;/ProductGroupCode&gt;
+             &lt;PaymentLogId&gt;157673&lt;/PaymentLogId&gt;
+             &lt;CustReference&gt;2348065186175&lt;/CustReference&gt;
+             &lt;AlternateCustReference&gt;2348065186175&lt;/AlternateCustReference&gt;
+             &lt;Amount&gt;4200.00&lt;/Amount&gt;
+             &lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+             &lt;PaymentMethod&gt;CASH&lt;/PaymentMethod&gt;
+             &lt;PaymentReference&gt;FBN|BRH|KSP|4-03-2014|019136&lt;/PaymentReference&gt;
+             &lt;TerminalId/&gt;
+             &lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+             &lt;Location&gt;ABAJI&lt;/Location&gt;
+             &lt;IsReversal&gt;False&lt;/IsReversal&gt;
+             &lt;PaymentDate&gt;03/04/2014 11:58:22&lt;/PaymentDate&gt;
+             &lt;SettlementDate&gt;03/05/2014 00:00:01&lt;/SettlementDate&gt;
+             &lt;InstitutionId&gt;KSP&lt;/InstitutionId&gt;
+             &lt;InstitutionName&gt;Kano State Payments&lt;/InstitutionName&gt;
+             &lt;BranchName&gt;ABAJI&lt;/BranchName&gt;
+             &lt;BankName&gt;First Bank of Nigeria Plc&lt;/BankName&gt;
+             &lt;FeeName/&gt;
+             &lt;CustomerName&gt;OLABAMIJI  A.TAIWO&lt;/CustomerName&gt;
+             &lt;OtherCustomerInfo&gt;Lagos|08037119301&lt;/OtherCustomerInfo&gt;
+             &lt;ReceiptNo&gt;1406335845&lt;/ReceiptNo&gt;
+             &lt;CollectionsAccount&gt;455455354545&lt;/CollectionsAccount&gt;
+             &lt;ThirdPartyCode&gt;--N/A--&lt;/ThirdPartyCode&gt;
+             &lt;PaymentItems&gt;
+                &lt;PaymentItem&gt;
+                   &lt;ItemName&gt;Kano State Payments (National Plate Numbers (test))&lt;/ItemName&gt;
+                   &lt;ItemCode&gt;KSP&lt;/ItemCode&gt;
+                   &lt;ItemAmount&gt;4200.00&lt;/ItemAmount&gt;
+                   &lt;LeadBankCode&gt;FBN&lt;/LeadBankCode&gt;
+                   &lt;LeadBankCbnCode&gt;011&lt;/LeadBankCbnCode&gt;
+                   &lt;LeadBankName&gt;First Bank of Nigeria Plc&lt;/LeadBankName&gt;
+                   &lt;CategoryCode&gt;4030013&lt;/CategoryCode&gt;
+                   &lt;CategoryName&gt;National Plate Numbers (test)&lt;/CategoryName&gt;
+                &lt;/PaymentItem&gt;
+             &lt;/PaymentItems&gt;
+             &lt;BankCode&gt;FBN&lt;/BankCode&gt;
+             &lt;CustomerAddress&gt;Lagos&lt;/CustomerAddress&gt;
+             &lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+             &lt;DepositorName&gt;1234&lt;/DepositorName&gt;
+             &lt;DepositSlipNumber&gt;1234&lt;/DepositSlipNumber&gt;
+             &lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+             &lt;OriginalPaymentLogId&gt;0&lt;/OriginalPaymentLogId&gt;
+             &lt;OriginalPaymentReference/&gt;
+             &lt;Teller&gt;ABAJI1 ABAJI&lt;/Teller&gt;
+          &lt;/Payment&gt;
+       &lt;/Payments&gt;
+&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="FirstMonie-Bill Payment Notification-104" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.104/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitchng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest&gt; &lt;RouteId&gt;firstMonieBillPaymentv3&lt;/RouteId&gt;
+       &lt;ServiceUrl&gt;&lt;/ServiceUrl&gt;
+       &lt;ServiceUsername&gt;&lt;/ServiceUsername&gt;
+       &lt;ServicePassword&gt;&lt;/ServicePassword&gt;
+       &lt;FtpUrl&gt;&lt;/FtpUrl&gt;
+       &lt;FtpUsername/&gt;
+       &lt;FtpPassword/&gt;
+       &lt;Payments&gt;
+          &lt;Payment&gt;
+             &lt;ProductGroupCode&gt;&lt;/ProductGroupCode&gt;
+             &lt;PaymentLogId&gt;157673&lt;/PaymentLogId&gt;
+             &lt;CustReference&gt;2348065186175&lt;/CustReference&gt;
+             &lt;AlternateCustReference&gt;2348065186175&lt;/AlternateCustReference&gt;
+             &lt;Amount&gt;4200.00&lt;/Amount&gt;
+             &lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+             &lt;PaymentMethod&gt;CASH&lt;/PaymentMethod&gt;
+             &lt;PaymentReference&gt;FBN|BRH|KSP|4-03-2014|019136&lt;/PaymentReference&gt;
+             &lt;TerminalId/&gt;
+             &lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+             &lt;Location&gt;ABAJI&lt;/Location&gt;
+             &lt;IsReversal&gt;False&lt;/IsReversal&gt;
+             &lt;PaymentDate&gt;03/04/2014 11:58:22&lt;/PaymentDate&gt;
+             &lt;SettlementDate&gt;03/05/2014 00:00:01&lt;/SettlementDate&gt;
+             &lt;InstitutionId&gt;KSP&lt;/InstitutionId&gt;
+             &lt;InstitutionName&gt;Kano State Payments&lt;/InstitutionName&gt;
+             &lt;BranchName&gt;ABAJI&lt;/BranchName&gt;
+             &lt;BankName&gt;First Bank of Nigeria Plc&lt;/BankName&gt;
+             &lt;FeeName/&gt;
+             &lt;CustomerName&gt;OLABAMIJI  A.TAIWO&lt;/CustomerName&gt;
+             &lt;OtherCustomerInfo&gt;Lagos|08037119301&lt;/OtherCustomerInfo&gt;
+             &lt;ReceiptNo&gt;1406335845&lt;/ReceiptNo&gt;
+             &lt;CollectionsAccount&gt;455455354545&lt;/CollectionsAccount&gt;
+             &lt;ThirdPartyCode&gt;--N/A--&lt;/ThirdPartyCode&gt;
+             &lt;PaymentItems&gt;
+                &lt;PaymentItem&gt;
+                   &lt;ItemName&gt;Kano State Payments (National Plate Numbers (test))&lt;/ItemName&gt;
+                   &lt;ItemCode&gt;KSP&lt;/ItemCode&gt;
+                   &lt;ItemAmount&gt;4200.00&lt;/ItemAmount&gt;
+                   &lt;LeadBankCode&gt;FBN&lt;/LeadBankCode&gt;
+                   &lt;LeadBankCbnCode&gt;011&lt;/LeadBankCbnCode&gt;
+                   &lt;LeadBankName&gt;First Bank of Nigeria Plc&lt;/LeadBankName&gt;
+                   &lt;CategoryCode&gt;4030013&lt;/CategoryCode&gt;
+                   &lt;CategoryName&gt;National Plate Numbers (test)&lt;/CategoryName&gt;
+                &lt;/PaymentItem&gt;
+             &lt;/PaymentItems&gt;
+             &lt;BankCode&gt;FBN&lt;/BankCode&gt;
+             &lt;CustomerAddress&gt;Lagos&lt;/CustomerAddress&gt;
+             &lt;CustomerPhoneNumber&gt;08065186170&lt;/CustomerPhoneNumber&gt;
+             &lt;DepositorName&gt;1234&lt;/DepositorName&gt;
+             &lt;DepositSlipNumber&gt;1234&lt;/DepositSlipNumber&gt;
+             &lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+             &lt;OriginalPaymentLogId&gt;0&lt;/OriginalPaymentLogId&gt;
+             &lt;OriginalPaymentReference/&gt;
+             &lt;Teller&gt;ABAJI1 ABAJI&lt;/Teller&gt;
+          &lt;/Payment&gt;
+       &lt;/Payments&gt;
+&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

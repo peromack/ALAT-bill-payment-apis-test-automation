@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.7" jmeter="2.12 r1636949">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Bill Payment Notification Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">SecurityToken</stringProp>
+            <stringProp name="Header.value">83a7443f6f19c1a4c2e7fe225b059a2f8eadd6fb7765a811b817edcff12e2cd95c13ef458dfc215541c53b63ec6e0318a445737b0e9eec91d6c3b9d4638dcf767eb3de51d91ad68cad9a89b9fd07b594e0aa7b1f3ef48846675cfa428d552e06ac1147f9279cead5315b0cd85388c0390265f5e5e04ff1f1ff2c8e3bb66bd07701b893ccce7e11d37742ca1694750b6448884d5f2b2b33bb64ff1f34e820b6132f78fbd3460e32aaaa79ac26f970a0f7f3ac006886d66560eef319372f1f3b6888410614f4733f4464c84f0c7fea6990da1cc91d55e72b6da229831ca444fe4e6bee20f527991cc83234b629c82230392ce528c209dc07343f2d8cfc95a3a0b65dbba59530fb165891bdd69dba089669</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(NoOfUsers,2)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(RampTime,2)}</stringProp>
+        <longProp name="ThreadGroup.start_time">1397637176000</longProp>
+        <longProp name="ThreadGroup.end_time">1397637176000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="AirtelFTP-Bill Payment Notification" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://172.25.20.104/v2/billpaymentservice</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;soap:Envelope xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;ht
+tp://www.w3.org/2001/XMLSchema-instance&quot; xmlns:wsdl=&quot;http://techquest.interswitc
+hng.com/&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:soapenv=&quot;
+http://schemas.xmlsoap.org/soap/envelope&quot;&gt;&lt;soap:Body&gt;&lt;PaymentNotificationRequest
+&gt;       &lt;RouteId&gt;AIRTELFTP&lt;/RouteId&gt;
+&lt;ServiceUrl/&gt;
+&lt;ServiceUsername/&gt;
+&lt;ServicePassword/&gt;
+&lt;FtpUrl/&gt;
+&lt;FtpUsername/&gt;
+&lt;FtpPassword/&gt;
+&lt;Payments&gt;
+&lt;Payment&gt;
+&lt;ProductGroupCode&gt;AIRTELFTP&lt;/ProductGroupCode&gt;
+&lt;PaymentLogId&gt;9837333&lt;/PaymentLogId&gt;
+&lt;CustReference&gt;&lt;/CustReference&gt;
+&lt;AlternateCustReference&gt;--N/A--&lt;/AlternateCustReference&gt;
+&lt;Amount&gt;50000.00&lt;/Amount&gt;
+&lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+&lt;PaymentMethod&gt;Cash&lt;/PaymentMethod&gt;
+&lt;PaymentReference&gt;GTB|BRH|AIRTEL|25-08-2014|839088&lt;/PaymentReference&gt;
+&lt;TerminalId/&gt;
+&lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+&lt;Location&gt;KANO-3&lt;/Location&gt;
+&lt;IsReversal&gt;False&lt;/IsReversal&gt;
+&lt;PaymentDate&gt;08/25/2014 10:56:08&lt;/PaymentDate&gt;
+&lt;SettlementDate&gt;08/26/2014 00:00:01&lt;/SettlementDate&gt;
+&lt;InstitutionId&gt;AIRTEL&lt;/InstitutionId&gt;
+&lt;InstitutionName&gt;Airtel&lt;/InstitutionName&gt;
+&lt;BranchName&gt;KANO-3&lt;/BranchName&gt;
+&lt;BankName&gt;Guaranty Trust Bank Plc&lt;/BankName&gt;
+&lt;FeeName/&gt;
+&lt;CustomerName&gt;BUS ACTIVATION NN0258  &lt;/CustomerName&gt;
+&lt;OtherCustomerInfo&gt;|BA0127&lt;/OtherCustomerInfo&gt;
+&lt;ReceiptNo&gt;1423705615&lt;/ReceiptNo&gt;
+&lt;CollectionsAccount&gt;20501332******0100&lt;/CollectionsAccount&gt;
+&lt;ThirdPartyCode&gt;DEALER&lt;/ThirdPartyCode&gt;
+&lt;PaymentItems&gt;
+&lt;PaymentItem&gt;
+&lt;ItemName&gt;Dealer Stock&lt;/ItemName&gt;
+&lt;ItemCode&gt;Stock&lt;/ItemCode&gt;
+&lt;ItemAmount&gt;50000.00&lt;/ItemAmount&gt;
+&lt;LeadBankCode&gt;GTB&lt;/LeadBankCode&gt;
+&lt;LeadBankCbnCode&gt;058&lt;/LeadBankCbnCode&gt;
+&lt;LeadBankName&gt;Guaranty Trust Bank Plc&lt;/LeadBankName&gt;
+&lt;CategoryCode/&gt;
+&lt;CategoryName/&gt;
+&lt;ItemQuantity&gt;1&lt;/ItemQuantity&gt;
+&lt;/PaymentItem&gt;
+&lt;/PaymentItems&gt;
+&lt;BankCode&gt;GTB&lt;/BankCode&gt;
+&lt;CustomerAddress/&gt;
+&lt;CustomerPhoneNumber&gt;BA0127&lt;/CustomerPhoneNumber&gt;
+&lt;DepositorName&gt;BA0127&lt;/DepositorName&gt;
+&lt;DepositSlipNumber&gt;4399478&lt;/DepositSlipNumber&gt;
+&lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+&lt;OriginalPaymentLogId/&gt;
+&lt;OriginalPaymentReference/&gt;
+&lt;Teller&gt;MUKHTARI BELLO&lt;/Teller&gt;
+&lt;/Payment&gt;
+&lt;Payment&gt;
+&lt;ProductGroupCode&gt;AIRTELFTP&lt;/ProductGroupCode&gt;
+&lt;PaymentLogId&gt;9837341&lt;/PaymentLogId&gt;
+&lt;CustReference&gt;BA0031&lt;/CustReference&gt;
+&lt;AlternateCustReference&gt;--N/A--&lt;/AlternateCustReference&gt;
+&lt;Amount&gt;14200.00&lt;/Amount&gt;
+&lt;PaymentStatus&gt;0&lt;/PaymentStatus&gt;
+&lt;PaymentMethod&gt;Cash&lt;/PaymentMethod&gt;
+&lt;PaymentReference&gt;FCMB|BRH|AIRTEL|25-08-2014|839089&lt;/PaymentReference&gt;
+&lt;TerminalId/&gt;
+&lt;ChannelName&gt;Bank Branc&lt;/ChannelName&gt;
+&lt;Location&gt;FCMB - Wuse 2&lt;/Location&gt;
+&lt;IsReversal&gt;False&lt;/IsReversal&gt;
+&lt;PaymentDate&gt;08/25/2014 10:56:10&lt;/PaymentDate&gt;
+&lt;SettlementDate&gt;08/26/2014 00:00:01&lt;/SettlementDate&gt;
+&lt;InstitutionId&gt;AIRTEL&lt;/InstitutionId&gt;
+&lt;InstitutionName&gt;Airtel&lt;/InstitutionName&gt;
+&lt;BranchName&gt;FCMB - Wuse 2&lt;/BranchName&gt;
+&lt;BankName&gt;First City Monument Bank&lt;/BankName&gt;
+&lt;FeeName/&gt;
+&lt;CustomerName&gt;BUS ACTIVATION NC8022   &lt;/CustomerName&gt;
+&lt;OtherCustomerInfo&gt;|&lt;/OtherCustomerInfo&gt;
+&lt;ReceiptNo&gt;1423705616&lt;/ReceiptNo&gt;
+&lt;CollectionsAccount&gt;0130257016&lt;/CollectionsAccount&gt;
+&lt;ThirdPartyCode&gt;DEALER&lt;/ThirdPartyCode&gt;
+&lt;PaymentItems&gt;
+&lt;PaymentItem&gt;
+&lt;ItemName&gt;Dealer Stock&lt;/ItemName&gt;
+&lt;ItemCode&gt;Stock&lt;/ItemCode&gt;
+&lt;ItemAmount&gt;14200.00&lt;/ItemAmount&gt;
+&lt;LeadBankCode&gt;FCMB&lt;/LeadBankCode&gt;
+&lt;LeadBankCbnCode&gt;214&lt;/LeadBankCbnCode&gt;
+&lt;LeadBankName&gt;First City Monument Bank&lt;/LeadBankName&gt;
+&lt;CategoryCode/&gt;
+&lt;CategoryName/&gt;
+&lt;ItemQuantity&gt;1&lt;/ItemQuantity&gt;
+&lt;/PaymentItem&gt;
+&lt;/PaymentItems&gt;
+&lt;BankCode&gt;FCMB&lt;/BankCode&gt;
+&lt;CustomerAddress/&gt;
+&lt;CustomerPhoneNumber/&gt;
+&lt;DepositorName/&gt;
+&lt;DepositSlipNumber&gt;06724638&lt;/DepositSlipNumber&gt;
+&lt;PaymentCurrency&gt;566&lt;/PaymentCurrency&gt;
+&lt;OriginalPaymentLogId/&gt;
+&lt;OriginalPaymentReference/&gt;
+&lt;Teller&gt;Osemeke Chukwuemeka&lt;/Teller&gt;
+&lt;/Payment&gt;
+&lt;/Payments&gt;&lt;/PaymentNotificationRequest&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">PaymentNotificationRequest</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
